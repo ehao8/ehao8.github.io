@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Homework 2">
+<title>CNIT 133 Homework 2</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<style>
+    body {background-color:#f2f2f2;}
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 10px;
+    }
+    table.center {
+        margin-left: auto; 
+        margin-right: auto;
+    }
+    div.container {
+        text-align: center;
+    }
+    #panel {
+        padding: 50px;
+        display: none;
+    }
+    input {
+        text-align: right;
+    }
+
+</style>
+<script>
+    function part1(){
+        document.write("<span style = 'color: red; font-family:Times New Roman; font-weight:bold'>ab </span>");
+        document.write("<span style = 'color: blue; font-family:Arial; font-weight:bold'>12 </span>");
+        document.write("<span style = 'color: green; font-family:Impact; font-weight:bold'><em>34</em></span>");
+
+    }
+
+    function part2(){
+        document.getElementById("p2Result").innerHTML = "";
+        var number1, number2, number3, n1, n2, n3, sum, avg, product, min, max;
+        var resultMsg = "";
+        var errMsg = "<span style='font-weight: bold; color: red; font-size: 1.5em;'>ERROR: Please enter integers only</span>";
+        /*
+        number1 = document.forms["p2Form"].elements["num1"].value;
+        number2 = document.forms["p2Form"].elements["num2"].value;
+        number3 = document.forms["p2Form"].elements["num3"].value;
+        */
+        number1 = document.getElementById("num1").value;
+        number2 = document.getElementById("num3").value;
+        number3 = document.getElementById("num2").value;      
+
+        if(!isNaN(number1) && !isNaN(number2) && !isNaN(number3)){
+            n1 = parseInt(number1);
+            n2 = parseInt(number2);
+            n3 = parseInt(number3);
+            
+            sum = n1 + n2 + n3; 
+            avg = (sum)/3;
+            product = n1 * n2 * n3
+            min = Math.min(n1, n2, n3);
+            max = Math.max(n1, n2, n3);
+
+            resultMsg = "Sum: " + sum + "<br>Average: " + avg + "<br>Product: " + product + "<br>Min: " + min + "<br>Max: " + max;
+            document.getElementById("p2Result").innerHTML+= (resultMsg); 
+
+            //document.forms["p2Form"].elements["p2Result"].value = ("Sum: " + sum + "\nAverage: " + avg + "\nProduct: " + product + "\nMin: " + min + "\nMax: " + max); 
+        }
+        else{
+            document.getElementById("p2Result").innerHTML+= (errMsg);
+            //document.forms["p2Form"].elements["p2Result"].value = ("ERROR: Please enter integers only"); 
+        }
+        $(document).ready(function(){
+            $("#p2Result").fadeIn("slow");
+        });
+
+    }  
+    
+    function p2res(){
+        document.getElementById("p2Result").innerHTML = "";
+        document.getElementById("num1").focus();
+    } 
+    
+    $(document).ready(function(){
+        $("#p2Reset").click(function(){
+            $("#p2Result").fadeOut("slow");
+  });
+});
+
+    function part3(){
+        document.getElementById("p3Result").innerHTML = "";
+        var number1, number2, number3, number4, number5, n1, n2, n3, n4, n5;
+        var numPos = 0;
+        var numNeg = 0;
+        var numZero = 0;
+        var resultMsg = "";
+        var errMsg = "<span style='font-weight: bold; color: red; font-size: 1.5em;'>ERROR: Please enter integers only</span>";
+        
+        number1 = document.getElementById("p3num1").value;
+        number2 = document.getElementById("p3num2").value;
+        number3 = document.getElementById("p3num3").value;
+        number4 = document.getElementById("p3num4").value;
+        number5 = document.getElementById("p3num5").value;
+
+
+                //alert(n1 + " " + n2 + " " + n3 + " " + n4 + " " + n5)
+            if(!isNaN(number1) && !isNaN(number2) && !isNaN(number3) && !isNaN(number4) && !isNaN(number5)){
+                n1 = parseInt(number1);
+                n2 = parseInt(number2);
+                n3 = parseInt(number3);
+                n4 = parseInt(number4);
+                n5 = parseInt(number5);
+
+                if(n1 >0){
+                    numPos++;
+                }
+                else if(n1 <0){
+                    numNeg++;
+                }
+                else if(n1 ==0){
+                    numZero++;
+                }
+                if(n2 >0){
+                    numPos++;
+                }
+                else if(n2 <0){
+                    numNeg++;
+                }
+                else if(n2 ==0){
+                    numZero++;
+                }
+                if(n3 >0){
+                    numPos++;
+                }
+                else if(n3 <0){
+                    numNeg++;
+                }
+                else if(n3 ==0){
+                    numZero++;
+                }
+                if(n4 >0){
+                    numPos++;
+                }
+                else if(n4 <0){
+                    numNeg++;
+                }
+                else if(n4 ==0){
+                    numZero++;
+                }
+                if(n5 >0){
+                    numPos++;
+                }
+                else if(n5 <0){
+                    numNeg++;
+                }
+                else if(n5 ==0){
+                    numZero++;
+                }
+                resultMsg = "Number of Zeros: " + numZero + "<br>Number of Positive Numbers: " + numPos + "<br>Number of Negative Numbers: " + numNeg;
+                document.getElementById("p3Result").innerHTML+= (resultMsg); 
+            }
+            else{
+                document.getElementById("p3Result").innerHTML+= (errMsg);
+            }
+
+            $(document).ready(function(){
+                 $("#p3Result").fadeIn("slow");
+            });
+              
+    }
+    $(document).ready(function(){
+        $("#p3Reset").click(function(){
+            $("#p3Result").fadeOut("slow");
+        });
+    });
+
+    $(document).ready(function(){
+        $("#flip").click(function(){
+            $("#panel").slideToggle("slow");
+        });
+    });
+
+    function exCredit(){
+        var number1, number2, number3, number4, number5, number6, n1, n2, n3, n4, n5, n6;
+        /*
+        ecnum1 = rate1 = euro
+        ecnum2 = rate2 = CAN
+        ecnum3 = rate3 = HKD
+        ecnum4 = rate4 = Yen
+        ecnum5 = rate5 = PESO
+        */
+        number1 = document.getElementById("rate1").value;
+        number2 = document.getElementById("rate2").value;
+        number3 = document.getElementById("rate3").value;
+        number4 = document.getElementById("rate4").value;
+        number5 = document.getElementById("rate5").value;
+        number6 = document.getElementById("ecnum6").value;
+
+        n1 = parseFloat(number1);
+        n2 = parseFloat(number2);
+        n3 = parseFloat(number3);
+        n4 = parseFloat(number4);
+        n5 = parseFloat(number5);
+        n6 = parseFloat(number6);
+
+        var euro = n6 * n1;
+        var can = n6 * n2;
+        var hkd = n6 * n3;
+        var yen = n6 * n4;
+        var peso = n6 * n5;
+
+        document.forms["ecForm"].elements["ecnum1"].value = euro.toFixed(2);
+        document.forms["ecForm"].elements["ecnum2"].value = can.toFixed(2);
+        document.forms["ecForm"].elements["ecnum3"].value = hkd.toFixed(2);
+        document.forms["ecForm"].elements["ecnum4"].value = yen.toFixed(2);
+        document.forms["ecForm"].elements["ecnum5"].value = peso.toFixed(2);
+        /*
+        document.getElementById("ecnum1").innerHTML = euro.toFixed(2);
+        document.getElementById("ecnum2").innerHTML = can.toFixed(2);  
+        document.getElementById("ecnum3").innerHTML = hkd.toFixed(2);
+        document.getElementById("ecnum4").innerHTML = yen.toFixed(2);
+        document.getElementById("ecnum5").innerHTML = peso.toFixed(2);
+
+        alert(euro + " " + can + " " + hkd + " " + yen + " " + peso);
+        */
+    }
+
+</script>
+
+</head>
+
+<body>
+    <h2>CNIT133 Homework List</h2> 
+
+    <div class="m-4">
+        <nav class="nav nav-tabs">
+            <a href="hw1.html" class="nav-item nav-link">Homework 1 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw2.html" class="nav-item nav-link">Homework 2
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw3.html" class="nav-item nav-link">Homework 3
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw4.html" class="nav-item nav-link">Homework 4
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw5.html" class="nav-item nav-link">Homework 5
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw6.html" class="nav-item nav-link">Homework 6
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw7.html" class="nav-item nav-link">Homework 7
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw8.html" class="nav-item nav-link">Homework 8
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1>CNIT 133 Homework 2 Basic Operations</h1>
+<!--Labels-->
+        <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Overview</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-p1-tab" data-bs-toggle="pill" data-bs-target="#pills-p1" type="button" role="tab" aria-controls="pills-p1" aria-selected="false">Part 1</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-p2-tab" data-bs-toggle="pill" data-bs-target="#pills-p2" type="button" role="tab" aria-controls="pills-p2" aria-selected="false">Part 2</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-p3-tab" data-bs-toggle="pill" data-bs-target="#pills-p3" type="button" role="tab" aria-controls="pills-p3" aria-selected="false">Part 3</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-ec-tab" data-bs-toggle="pill" data-bs-target="#pills-ec" type="button" role="tab" aria-controls="pills-ec" aria-selected="false">Extra Credit</button>
+              </li>
+        </ul>
+
+<!--Overview-->
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <ul style="list-style: none;">
+                <li>Part 1 - document.write statements</li>
+                <li>Part 2 - Input and Math</li>
+                <li>Part 3 - Number Of Count</li>
+                <li>Extra Credit - Exchanges Rates</li>
+            </ul>
+          </div>
+<!--Part 1-->
+          <div class="tab-pane fade" id="pills-p1" role="tabpanel" aria-labelledby="pills-p1-tab">
+            <script>
+                part1();
+            </script>
+          </div>
+<!--Part 2-->
+          <div class="tab-pane fade" id="pills-p2" role="tabpanel" aria-labelledby="pills-p2-tab">
+                <form name="p2Form">
+                    <br>
+                    <p>
+                        <label for="num1">
+                            First Number:
+                            <input type="text" id="num1" required autofocus>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            Second Number:
+                            <input type="text" id="num2" required>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            Third Number:
+                            <input type="text" id="num3" required>
+                        </label>
+                    </p>
+                    <br>  
+                <button id="p2Submit" type="button" onclick="part2(); return(false);">Submit</button>
+                <button id="p2Reset" type="reset">Reset</button>
+                </form>
+            <div id="p2Result"></div>
+          </div>
+<!--Part 3-->
+          <div class="tab-pane fade" id="pills-p3" role="tabpanel" aria-labelledby="pills-p3-tab">
+            <form name = "p3Form">
+                <br>
+                <p>
+                    <label>
+                        First Number:
+                        <input type="number" id="p3num1" required>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Second Number:
+                        <input type="number" id="p3num2" required>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Third Number:
+                        <input type="number" id="p3num3" required>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Fourth Number:
+                        <input type="number" id="p3num4" required>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Fifth Number:
+                        <input type="number" id="p3num5" required>
+                    </label>
+                </p>
+                <br>
+                <button  id="p3Submit" type="button" onclick="part3(); return(false);">Submit</button>
+                <button id="p3Reset" type="reset">Reset</button>
+            </form>
+            <div id="p3Result"></div>
+          </div>
+<!--Extra Credit-->
+          <div class="tab-pane fade" id="pills-ec" role="tabpanel" aria-labelledby="pills-ec-tab">
+            <form name="ecForm">
+                <div id="flip">Click to Show/Hide Instructions</div>
+                <div id="panel">The foreign exchange rates in July 2019<br>Enter a dollar amount in the table below to see the corresponding foreign exchange values.</div>
+
+                <br>
+                <table class="center" style="width:400px">
+
+                    <tr>
+                        <th colspan="3">Currency Exchange Rates</th>
+                    </tr>
+                
+                    <tr>
+                        <th>Currency</th>
+                        <th>Rate</th> 
+                        <th>Amount</th> 
+                    </tr>
+                
+                    <tr>
+                    <td>Euro</td>
+                    <td><input type="text" id="rate1" size="10" value="0.89" readonly></td>
+                    <td><input type="text" id="ecnum1" size="10"></td>
+                    </tr>
+                
+                    <tr>
+                    <td>Canadian Dollar</td>
+                    <td><input type="text" id="rate2" size="10" value="1.31" readonly></td>
+                    <td><input type="text" id="ecnum2" size="10"></td>
+                    </tr>
+                
+                    <tr>
+                    <td>Hong Kong Dollar</td>
+                    <td><input type="text" id="rate3" size="10" value="7.8" readonly></td>
+                    <td><input type="text" id="ecnum3" size="10"></td>
+                    </tr>
+                
+                    <tr>
+                    <td>Japanese Yen</td>
+                    <td><input type="text" id="rate4" size="10" value="108.38" readonly></td>
+                    <td><input type="text" id="ecnum4" size="10"></td>
+                    </tr>
+                
+                    <tr>
+                    <td>Mexican Peso</td>
+                    <td><input type="text" id="rate5" size="10" value="19.11" readonly></td>
+                    <td><input type="text" id="ecnum5" size="10"></td>
+                    </tr>
+                
+                    <tr>
+                    <td colspan="2"><strong>Enter Amount of U.S. dollars</strong></td>
+                    <td><input type="text" id="ecnum6" size="10"></td>
+                    </tr>
+                
+                </table>
+                <br>
+                
+                <button  id="ecSubmit" type="button" onclick="exCredit(); return(false);">Calculate</button>
+                <button id="ecReset" type="reset">Reset</button>
+            </form>
+
+          </div>
+        </div>
+    </div>
+</body>
+
+
+</html>
