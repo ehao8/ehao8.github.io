@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Homework 5">
+<title>CNIT 133 Homework 5</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<style>
+    body {background-color:#f2f2f2;}
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 10px;
+    }
+    table.center {
+        margin-left: auto; 
+        margin-right: auto;
+    }
+    div.container {
+        text-align: center;
+    }
+    #panel {
+        padding: 50px;
+        display: none;
+    }
+    input {
+        text-align: right;
+    }
+
+
+</style>
+<script>
+
+</script>
+
+</head>
+
+<body>
+    <h2>CNIT133 Homework List</h2> 
+
+    <div class="m-4">
+        <nav class="nav nav-tabs">
+            <a href="hw1.html" class="nav-item nav-link">Homework 1 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw2.html" class="nav-item nav-link">Homework 2
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw3.html" class="nav-item nav-link">Homework 3
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw4.html" class="nav-item nav-link">Homework 4
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw5.html" class="nav-item nav-link">Homework 5
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw6.html" class="nav-item nav-link">Homework 6
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw7.html" class="nav-item nav-link">Homework 7
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw8.html" class="nav-item nav-link">Homework 8
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1>CNIT 133 Homework 5 Arrays</h1>
+<!--Labels-->
+        <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Overview</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-p1-tab" data-bs-toggle="pill" data-bs-target="#pills-p1" type="button" role="tab" aria-controls="pills-p1" aria-selected="false">Part 1</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-p2-tab" data-bs-toggle="pill" data-bs-target="#pills-p2" type="button" role="tab" aria-controls="pills-p2" aria-selected="false">Part 2</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-p3-tab" data-bs-toggle="pill" data-bs-target="#pills-p3" type="button" role="tab" aria-controls="pills-p3" aria-selected="false">Part 3</button>
+              </li>
+        </ul>
+
+<!--Overview-->
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <ul style="list-style: none;">
+                <li>Part 1 - Form Validation</li>
+                <li>Part 2 - Form Pulldown Menus</li>
+                <li>Part 3 - State Census</li>
+            </ul>
+          </div>
+<!--Part 1-->
+          <div class="tab-pane fade" id="pills-p1" role="tabpanel" aria-labelledby="pills-p1-tab">
+            <form name="p1form" id="p1form">
+                <fieldset>
+                    <br><h3>Form Validation</h3><br>
+                    <p><strong>Name:</strong> <input type="text" name="name" id="name"></p>
+                    <p><strong>Gender:</strong>
+                        <input type="radio" name="gender" id="gender1"> M
+                        <input type="radio" name="gender" id="gender2"> F
+                        <input type="radio" name="gender" id="gender3"> Prefer not to say
+                    </p>
+                    <table class="center">
+                        <tr>
+                        <td><strong>Ethnicity:</strong></td>
+                        </tr>
+
+                        <tr>
+                        <td><input type="checkbox" name="ethnicity" id="native">American Indian or Alaska Native </td>
+                        </tr>
+                    
+                        <tr>
+                        <td><input type="checkbox" name="ethnicity" id="asian">Asian</td>
+                        </tr>
+                    
+                        <tr>
+                        <td><input type="checkbox" name="ethnicity" id="black">Black or African American </td>
+                        </tr>
+                    
+                        <tr>
+                        <td><input type="checkbox" name="ethnicity" id="pacific">Native Hawaiian or Other Pacific Islander</td>
+                        </tr>
+                        
+                        <tr>
+                        <td><input type="checkbox" name="ethnicity" id="white">White</td>
+                        </tr>
+                    
+                    </table>
+                    <br>
+                    <p><strong>Age:</strong>
+                        <select name="age" id="age">
+                            <option value="">What is your age range</option>
+                            <option value="under12">Under 12 years old</option>
+                            <option value="12to17">12-17 years old</option>
+                            <option value="18to24">18-24 years old</option>
+                            <option value="25to34">25-34 years old</option>
+                            <option value="35to44">35-44 years old</option>
+                            <option value="45to54">45-54 years old</option>
+                            <option value="55to65">55-64 years old</option>
+                            <option value="65up">65 years or older</option>
+                        </select>
+                    </p>
+                    <br>
+                        <button id="p1Submit" type="button" onclick="part1(); return(false);">Submit</button>
+                        <button id="p1Reset" type="reset">Reset</button>
+                    <br>
+                    <div id="p1Result"></div>
+                </fieldset>
+            </form>
+          </div>
+<!--Part 2-->
+          <div class="tab-pane fade" id="pills-p2" role="tabpanel" aria-labelledby="pills-p2-tab">
+            <form name="p2form" id="p2form">
+                <h3>Choose your destination (using onChange event handler)</h3>
+                <select name="destinationList" onChange="goToNewPage(this.form);">
+                    <option>Choose Destination:</option>
+                    <option value="http://www.yahoo.com/">Yahoo</option>
+                    <option value="http://www.w3.org/">W3C</option>
+                    <option value="http://www.mozilla.org/">Mozilla</option>
+                    <option value="http://www.ccsf.edu/cnit">CNIT</option>
+                </select>
+              </form>
+              
+              <br><br>
+              
+              <form>
+                <h3>Choose your destination (using onClick event handler)</h3>
+                <select name="destinationList">
+                    
+                    <option value="http://www.yahoo.com/">Yahoo</option>
+                    <option value="http://www.w3.org/">W3C</option>
+                    <option value="http://www.mozilla.org/">Mozilla</option>
+                    <option value="http://www.ccsf.edu/cnit">CNIT</option>
+                </select>
+                <input type="button" value="Go" onClick="goToNewPage(this.form);">
+              </form>
+              
+          </div>
+<!--Part 3-->
+          <div class="tab-pane fade" id="pills-p3" role="tabpanel" aria-labelledby="pills-p3-tab">
+            <br><h3>State Census</h3><br>
+            <table class="center">
+    
+                <tr class="headers">
+                    <th>State Abbr</th>
+                    <th>State Name</th>
+                    <th>Capital</th>
+                    <th>Population</th>
+                </tr>
+
+                <tr>
+                    <td>AL</td>
+                    <td>Alabama</td>
+                    <td>Montgomery</td>
+                    <td>4,887,871</td>
+                </tr>
+                
+                <tr>
+                    <td>AK</td>
+                    <td>Alaska</td>
+                    <td>Juneau</td>
+                    <td>737,438</td>
+                </tr>
+                
+                <tr>
+                    <td>AZ</td>
+                    <td>Arizona</td>
+                    <td>Phoenix</td>
+                    <td>7,171,646</td>
+                </tr>
+                
+                <tr>
+                    <td>AR</td>
+                    <td>Arkansas</td>
+                    <td>Little Rock</td>
+                    <td>3,010,825</td>
+                </tr>
+                
+                <tr>
+                    <td>CA</td>
+                    <td>California</td>
+                    <td>Sacramento</td>
+                    <td>39,557,045</td>
+                </tr>
+
+                <tr>
+                    <td>CO</td>
+                    <td>Colorado</td>
+                    <td>Denver</td>
+                    <td>5,694,564</td>
+                </tr>
+                
+            </table>
+            <form name="p3form" id="p3form">
+                <br>
+                <input type="text" size="15" name="stateVal" id="stateVal" autofocus> 
+                <br><br>
+                <button id="p3Submit" type="button" onclick="part3(); return(false);">Get State Info</button>
+                <button id="p3Reset" type="reset">Reset</button>
+                <br><br>
+            </form>
+
+            <div id="p3Result"></div>
+
+          </div>
+        </div>
+    </div>
+    <script src="hw5.js"></script>
+</body>
+
+
+</html>
