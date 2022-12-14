@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="answer" content="Homework 7">
+<title>CNIT 133 Homework 7</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<style>
+    body {background-color:#f2f2f2;}
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 10px;
+    }
+    table.center {
+        margin-left: auto; 
+        margin-right: auto;
+    }
+    div.container {
+        text-align: center;
+    }
+    #panel {
+        padding: 50px;
+        display: none;
+    }
+    input {
+        text-align: right;
+    }
+
+        /* Define three CSS classes corresponding to "themes" */
+        .theme1 {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            background-color: Linen;
+            font-size: .8em;
+        }
+
+        .theme2 {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: AliceBlue;
+            font-size: .9em;
+        }
+
+        .theme3 {
+            font-family: Georgia, serif;
+            background-color: MistyRose;
+            font-size: .85em;
+        }
+
+        /* The following CSS is just for basic layout and appearance */
+        #sampleText {
+            margin: 10px 30px;
+            padding: 0 10px;
+            border: 3px ridge gray;
+        }
+
+        #themeForm, #attributeForm {
+            text-align: center;
+            margin-left: 30px;
+            
+        }
+
+        input[type='radio'] {
+            margin: 0 5px 0 0;
+        }
+
+        h1, h2, h3 {
+            margin: 10px 0;
+            
+        }
+
+        table {
+            background-color: whitesmoke;
+        }
+
+        th {
+            color: white;
+            background-color: darkslategray;
+            text-align: left;
+        }
+
+        button {
+            margin-top: 10px;
+            font-size: .8em;
+        }
+</style>
+<script>
+        // Define a document ready handler
+        $(function () {
+            // Attach a click event handler to all the radio buttons in the attribute selection table
+            $("#attributeTable :radio").click(function () {
+                // The "this" variable refers to the radio button that was clicked.
+                // The HTML code defines the name attribute of the radio button as the name of the CSS property
+                // we want to set; the value of the radio button is the value we want to set the CSS property to.
+                // By doing this, the CSS of the sample text can be set easily with the following line of code:
+                $("#sampleText").css($(this).attr("name"), $(this).val());
+            });
+
+            // Attach a click event handler to the font size selection box
+            $("#fontSize").change(function () {
+                $("#sampleText").css($(this).attr("name"), $(this).val());
+            });
+
+            // Attach a click event handler to the checkboxes in the attribute selection table
+            $("#attributeTable :checkbox").change(function () {
+                $("#sampleText").css($(this).attr("name"), this.checked ? $(this).val() : "");
+            });
+
+            // Attach a click event handler to the radio buttons in the theme selection table
+            $("#themeTable :radio").click(function () {
+                // Clear specific CSS attributes that may have been set with the radio buttons in the attribute table
+                // by selecting all the one that have the checked attribute, and firing the click event
+                $("#attributeTable [checked]").click();
+
+                // Reset the select box by setting the value to ""
+                $("#fontSize").val("");
+
+                // Remove any class already set, and set the class to the one selected.
+                $("#sampleText").removeClass().addClass($(this).val());
+            });
+
+            // Attach a click event handler to the Reset All button
+            $("#resetAll").click(function () {
+                $("#themeTable [checked]").click(); // Clicks theme table elements that have a checked attribute
+                $("#attributeTable [checked]").click(); // Clicks attribute table elements that have a checked attribute
+                $("#fontSize").val(""); // Selects the font-size that has a value of ""
+                $("#attributeTable :checked").click(); // Clicks all the checkboxes that are checked (to uncheck them)
+            });
+        });
+</script>
+
+</head>
+
+<body>
+    <h2>CNIT133 Homework List</h2> 
+
+    <div class="m-4">
+        <nav class="nav nav-tabs">
+            <a href="hw1.html" class="nav-item nav-link">Homework 1 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw2.html" class="nav-item nav-link">Homework 2
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw3.html" class="nav-item nav-link">Homework 3
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw4.html" class="nav-item nav-link">Homework 4
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw5.html" class="nav-item nav-link">Homework 5
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw6.html" class="nav-item nav-link">Homework 6
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw7.html" class="nav-item nav-link">Homework 7
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+            <a href="hw8.html" class="nav-item nav-link">Homework 8
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+        </nav>
+    </div>
+
+    <div class="container">
+
+        <h1>CNIT 133 Homework 7 Object Model and Miscellaneous jQuery</h1>
+        <br>
+
+
+<!--Overview-->
+<form id="attributeForm">
+    <h3>CSS attribute </h3>
+    <table id="attributeTable" class="center">
+        <tr>
+            <th>Font Family</th>
+            <th>Background Color</th>
+            <th>Font Size</th>
+            <th>Letters and Words</th>
+        </tr>
+        <tr>
+            <td>
+                <label><input type="radio" name="font-family" value='"Comic Sans MS", cursive, sans-serif'
+                              id="comicSans">Comic Sans MS</label><br>
+                <label><input type="radio" name="font-family" value="Tahoma, Geneva, sans-serif"
+                              id="tahoma">Tahoma</label><br>
+                <label><input type="radio" name="font-family" value='"Trebuchet MS", Helvetica, sans-serif'
+                              id="trebuchet">Trebuchet MS</label><br>
+                <label><input type="radio" name="font-family" value="Verdana, Geneva, sans-serif"
+                              id="verdana">Verdana</label><br>
+                <label><input type="radio" name="font-family" value=""
+                              id="fontFamilyDefault" checked>Default</label>
+            </td>
+            <td>
+                <label><input type="radio" name="background-color" value="Azure"
+                              id="azure">Azure</label><br>
+                <label><input type="radio" name="background-color" value="Honeydew"
+                              id="honeydew">Honeydew</label><br>
+                <label><input type="radio" name="background-color" value="Ivory"
+                              id="ivory">Ivory</label><br>
+                <label><input type="radio" name="background-color" value="Lavender"
+                              id="lavender">Lavender</label><br>
+                <label><input type="radio" name="background-color" value=""
+                              id="bgColorDefault" checked>Default</label>
+            </td>
+            <td>
+                <label for="fontSize">Select one:</label><br>
+                <select name="font-size" size="5" id="fontSize">
+                    <option value="80%">80%</option>
+                    <option value="90%">90%</option>
+                    <option value="100%">100%</option>
+                    <option value="110%">110%</option>
+                    <option value="" selected>Default</option>
+                </select>
+            </td>
+            <td>
+                <label><input type="checkbox" name="font-weight" value="bold" id="boldCheck">bold</label><br>
+                <label><input type="checkbox" name="font-style" value="italic" id="italicCheck">italic</label><br>
+                <label><input type="checkbox" name="font-variant" value="small-caps"
+                              id="smallCapsCheck">small-caps</label><br>
+                <label><input type="checkbox" name="text-decoration" value="underline"
+                              id="underlineCheck">underline</label><br>
+                <label><input type="checkbox" name="letter-spacing" value="-1px" id="tight">tight</label>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<br style="clear: both">
+
+<div id="sampleText">
+    <h2>The Gettysburg Address</h2>
+
+    <p>Four score and seven years ago our fathers brought forth on this continent a new nation, conceived in liberty,
+        and dedicated to the proposition that all men are created equal.</p>
+
+    <p>Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so
+        dedicated, can long endure. We are met on a great battlefield of that war. We have come to dedicate a portion of
+        that field, as a final resting place for those who here gave their lives that that nation might live. It is
+        altogether fitting and proper that we should do this.</p>
+
+    <p>But, in a larger sense, we can not dedicate, we can not consecrate, we can not hallow this ground. The brave men,
+        living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world
+        will little note, nor long remember what we say here, but it can never forget what they did here. It is for us
+        the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so
+        nobly advanced. It is rather for us to be here dedicated to the great task remaining before us that from these
+        honored dead we take increased devotion to that cause for which they gave the last full measure of devotion that
+        we here highly resolve that these dead shall not have died in vain that this nation, under God, shall have a new
+        birth of freedom and that government of the people, by the people, for the people, shall not perish from the
+        earth.</p>
+</div>
+<button type="button" id="resetAll">Reset All</button>
+    </div>
+</body>
+
+
+</html>
